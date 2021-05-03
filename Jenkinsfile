@@ -1,7 +1,7 @@
 node ('master')
  {
   
-  def mavenHome = tool name: "maven3.6.3"
+ 
   
       echo "GitHub BranhName ${env.BRANCH_NAME}"
       echo "Jenkins Job Number ${env.BUILD_NUMBER}"
@@ -20,18 +20,18 @@ node ('master')
  
  stage("Build")
  {
- sh "${mavenHome}/bin/mvn clean package"
+ sh "mvn clean package"
  }
  
   /*
  stage("ExecuteSonarQubeReport")
  {
- sh "${mavenHome}/bin/mvn sonar:sonar"
+ sh "mvn sonar:sonar"
  }
  
  stage("UploadArtifactsintoNexus")
  {
- sh "${mavenHome}/bin/mvn deploy"
+ sh "mvn deploy"
  }
  
   stage("DeployAppTomcat")
